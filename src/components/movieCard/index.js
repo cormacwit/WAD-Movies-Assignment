@@ -17,13 +17,15 @@ import img from '../../images/film-poster-placeholder.png'
 
 export default function MovieCard(props) {
   const movie = props.movie;
+
   const handleAddToFavourite = (e) => {
     e.preventDefault();
     props.selectFavourite(movie.id);
   };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-           <CardHeader
+     <CardHeader
         avatar={
           movie.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
