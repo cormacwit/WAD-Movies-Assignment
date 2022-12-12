@@ -7,18 +7,14 @@ import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import {Link} from 'react-router-dom'
+import { Home } from "@mui/icons-material";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/movies/favourites">Favourites</Link>
-        </li>
-      </ul>
+      <BrowserRouter>
+          <SiteHeader />      {FavouriteMoviesPage}
+          <SiteHeader />      {HomePage}
+          
       <Routes>
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
