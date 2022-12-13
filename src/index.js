@@ -9,9 +9,22 @@ import SiteHeader from './components/siteHeader';
 import {Link} from 'react-router-dom';
 import { Home } from "@mui/icons-material";
 import UpcomingPage from './pages/upcomingMoviesPage';
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
 
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
           <SiteHeader />      {FavouriteMoviesPage}
           <SiteHeader />      {HomePage}
@@ -25,6 +38,8 @@ const App = () => {
         <Route path="/movies/upcoming" element={ <UpcomingPage /> } />
       </Routes>
     </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
