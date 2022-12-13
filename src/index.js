@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom';
 import { Home } from "@mui/icons-material";
 import UpcomingPage from './pages/upcomingMoviesPage';
 import { QueryClientProvider, QueryClient } from "react-query";
+import MoviesContextProvider from "./contexts/moviesContext";
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 const queryClient = new QueryClient({
@@ -26,9 +27,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-          <SiteHeader />      {FavouriteMoviesPage}
-          <SiteHeader />      {HomePage}
-
+        <SiteHeader />
+        <MoviesContextProvider>
       <Routes>
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
@@ -37,11 +37,13 @@ const App = () => {
         <Route path="*" element={ <Navigate to="/" /> } />
         <Route path="/movies/upcoming" element={ <UpcomingPage /> } />
       </Routes>
-    </BrowserRouter>
-    <ReactQueryDevtools initialIsOpen={false} />
+      </MoviesContextProvider>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+
   );
 };
 
-const rootElement = createRoot( document.getElementById("root") )
-rootElement.render(<App /> );
+const rootElement = createRoot(document.getElementById("root"));
+rootElement.render(<App />);
