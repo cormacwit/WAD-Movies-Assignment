@@ -11,7 +11,8 @@ import { Home } from "@mui/icons-material";
 import UpcomingPage from './pages/upcomingMoviesPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import MoviesContextProvider from "./contexts/moviesContext";
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { ReactQueryDevtools } from 'react-query/devtools';
+import AddMovieReviewPage from './pages/addMovieReviewPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route path="*" element={ <Navigate to="/" /> } />
         <Route path="/movies/upcoming" element={ <UpcomingPage /> } />
+        <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
       </Routes>
       </MoviesContextProvider>
       </BrowserRouter>
