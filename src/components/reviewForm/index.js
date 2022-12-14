@@ -13,6 +13,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 
+
 const ReviewForm = ({ movie }) => {
   const defaultValues = {
     author: "",
@@ -29,7 +30,7 @@ const ReviewForm = ({ movie }) => {
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
-  const [open, setOpen] = React.useState(false);  //NEW
+  const [open, setOpen] = React.useState(false); 
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
@@ -41,9 +42,9 @@ const ReviewForm = ({ movie }) => {
   };
 
   const onSubmit = (review) => {
-    review.movieId = movie.id;
-    review.rating = rating;
-    // console.log(review);
+//review.movieId = movie.id;
+    //review.rating = rating;
+    console.log(review);
     context.addReview(movie, review);
     setOpen(true); // NEW
   };
@@ -146,13 +147,14 @@ const ReviewForm = ({ movie }) => {
         />
 
         <Box sx={styles.buttons}>
-          <Button
+          <Button //doesnt work
             type="submit"
             variant="contained"
             color="primary"
             sx={styles.submit}
+            onClick={() => {onSubmit()}}
           >
-            Submit
+            Submit 
           </Button>
           <Button
             type="reset"
@@ -160,11 +162,11 @@ const ReviewForm = ({ movie }) => {
             color="secondary"
             sx={styles.submit}
             onClick={() => {
-              reset({
-                author: "",
-                content: "",
-              });
-            }}
+                reset({
+                  author: "",
+                  content: "",
+                });
+              }}
           >
             Reset
           </Button>
