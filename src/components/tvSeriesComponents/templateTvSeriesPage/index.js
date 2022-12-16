@@ -5,7 +5,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { getTVImages } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from './components/spinner'
+import Spinner from '../../spinner'
 
 const TemplatePage = ({ tvseries, children }) => {
   const { data , error, isLoading, isError } = useQuery(

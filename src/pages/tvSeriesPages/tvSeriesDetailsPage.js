@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import TvSeriesDetails from "../../components/tvSeriesComponents/tvSeriesDetails";
 import TemplatePage from "../../components/tvSeriesComponents/templateTvSeriesPage";
-import { getTVSeries } from '../api/tmdb-api'
+import { getTVSeries } from '../../api/tmdb-api'
 import { useQuery } from "react-query";
-import Spinner from '../components/spinner'
+import Spinner from '../../components/spinner'
 
 const TvSeriesDetailsPage = (props) => {
   const { id } = useParams();

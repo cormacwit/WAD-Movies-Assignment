@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { TVSeriesContext } from "../../contexts/tvSeriesContext";
 
 const RemoveFromFavouritesIcon = ({ tvseries }) => {
-  const context = useContext(TvSeriesContext);
+  const context = useContext(TVSeriesContext);
 
   const handleRemoveFromFavourites = (e) => {
     e.preventDefault();

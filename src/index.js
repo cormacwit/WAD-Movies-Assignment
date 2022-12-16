@@ -19,7 +19,7 @@ import TopRatedPage from "./pages/topRatedPage";
 import TvMainPage from "./pages/tvSeriesPages/tvMainPage"
 import TVSeriesContextProvider from "./contexts/tvSeriesContext";
 import TvSeriesDetailsPage from "./pages/tvSeriesPages/tvSeriesDetailsPage";
-import FavouriteTvSeriesPage from "./pages/tvSeriesPages/FavouriteTvSeriesPage";
+import favouriteTvSeriesPage from "./pages/tvSeriesPages/favouriteTvSeriesPage";
 import TvSeriesReviewPage from "./pages/tvSeriesPages/tvSeriesReviewsPage";
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,7 +48,7 @@ const App = () => {
         <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
         <Route path="/movies/popular" element={<PopularMoviePage />} />
         <Route path="/movies/toprated" element={<TopRatedPage />} />
-        <Route path="/tvseries/favourites" element={<FavouriteTvSeriesPage />} />
+        <Route path="/tvseries/favourites" element={<favouriteTvSeriesPage />} />
         <Route path="/tvseries/home" element={<TvMainPage />} />
         <Route path="v/tseries/Reviews" element={< TvSeriesReviewPage/>} />
         <Route path="/tvseries/Details" element={< TvSeriesDetailsPage/>} />

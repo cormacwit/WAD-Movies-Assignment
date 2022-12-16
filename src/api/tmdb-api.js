@@ -178,7 +178,7 @@ export const getTVImages = ({ queryKey }) => {
     .catch((error) => {
       throw error
     });
-};
+}
 
 export const getTVReviews = (tv_id) => {
   return fetch(

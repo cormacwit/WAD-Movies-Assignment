@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import TemplatePage from "../../components/tvSeriesComponents/templateTvSeriesPage";
 import { TVSeriesContext } from "../../contexts/tvSeriesContext";
 import { useQueries } from "react-query";
-import { getTVSeries } from "../api/tmdb-api";
+import { getTVSeries } from "../../api/tmdb-api";
 import RemoveFromFavouritesIcon from "../../components/tvCardIcons/removeFromFavouritesTvSeries";
 import WriteReviewIcon from "../../components/tvCardIcons/writeReviewTvSeries";
-import Spinner from '../components/spinner'
+import Spinner from '../../components/spinner'
 
 const FavouriteTvSeriesPage = () => {
-  const {favourites: tvseriesIds } = useContext(TvSeriesContext);
+  const {favourites: tvseriesIds } = useContext(TVSeriesContext);
 
   // Create an array of queries and run in parallel.
   const favouriteTvSerieseQueries = useQueries(
@@ -20,13 +20,13 @@ const FavouriteTvSeriesPage = () => {
     })
   );
   // Check if any of the parallel queries is still loading.
-  const isLoading = favouriteTvSeriesQueries.find((m) => m.isLoading === true);
+  const isLoading = favouriteTvSerieseQueries.find((m) => m.isLoading === true);
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  const tvseries = favouriteTvSeriesQueries.map((q) => {
+  const tvseries = favouriteTvSerieseQueries.map((q) => {
     q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
