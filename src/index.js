@@ -16,7 +16,11 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 ////
 import PopularMoviePage from './pages/popularMoviePage';
 import TopRatedPage from "./pages/topRatedPage";
-
+import TvMainPage from "./pages/tvSeriesPages/tvMainPage"
+import TVSeriesContextProvider from "./contexts/tvSeriesContext";
+import TvSeriesDetailsPage from "./pages/tvSeriesPages/tvSeriesDetailsPage";
+import FavouriteTvSeriesPage from "./pages/tvSeriesPages/FavouriteTvSeriesPage";
+import TvSeriesReviewPage from "./pages/tvSeriesPages/tvSeriesReviewsPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -32,6 +36,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
+        <TVSeriesContextProvider>
         <MoviesContextProvider>
       <Routes>
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
@@ -43,8 +48,13 @@ const App = () => {
         <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
         <Route path="/movies/popular" element={<PopularMoviePage />} />
         <Route path="/movies/toprated" element={<TopRatedPage />} />
+        <Route path="/tvseries/favourites" element={<FavouriteTvSeriesPage />} />
+        <Route path="/tvseries/home" element={<TvMainPage />} />
+        <Route path="v/tseries/Reviews" element={< TvSeriesReviewPage/>} />
+        <Route path="/tvseries/Details" element={< TvSeriesDetailsPage/>} />
       </Routes>
       </MoviesContextProvider>
+      </TVSeriesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
