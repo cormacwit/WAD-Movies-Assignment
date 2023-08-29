@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import TemplatePage from "../../components/tvSeriesComponents/templateTvSeriesPage";
 import { TVSeriesContext } from "../../contexts/tvSeriesContext";
 import { useQueries } from "react-query";
-import { getTVSeries } from "../../api/tmdb-api";
+import { getTVseries } from "../../api/tmdb-api";
 import RemoveFromFavouritesIcon from "../../components/tvCardIcons/removeFromFavouritesTvSeries";
 import WriteReviewIcon from "../../components/tvCardIcons/writeReviewTvSeries";
 import Spinner from '../../components/spinner'
@@ -15,7 +15,7 @@ const FavouriteTvSeriesPage = () => {
     tvseriesIds.map((tvseriesId) => {
       return {
         queryKey: ["tvseries", { id: tvseriesId }],
-        queryFn: getTVSeries,
+        queryFn: getTVseries,
       };
     })
   );

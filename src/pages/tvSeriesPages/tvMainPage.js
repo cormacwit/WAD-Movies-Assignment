@@ -1,5 +1,5 @@
 import React from "react";
-import { getTVSeries } from "../../api/tmdb-api";
+import { getTVseries } from "../../api/tmdb-api";
 import TemplatePage from "../../components/tvSeriesComponents/templateTvSeriesPage";
 import { useQuery } from 'react-query';
 import Spinner from '../../components/spinner';
@@ -7,7 +7,7 @@ import AddToFavouritesIcon from "../../components/tvCardIcons/addtoFavouritesTvS
 
 const HomePage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('TV Home Page', getTVSeries)
+  const {  data, error, isLoading, isError }  = useQuery('TV Home Page', getTVseries)
 
   if (isLoading) {
     return <Spinner />

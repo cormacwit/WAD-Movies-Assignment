@@ -133,7 +133,7 @@ export const getTVseries = () => { //plural
     });
 };
 
-export const getTVSeries = (args) => { //single
+export const getTVSerie = (args) => { //single
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
