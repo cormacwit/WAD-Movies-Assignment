@@ -50,7 +50,7 @@ export default function TvSeriesCard({ tvseries, action }) {
         sx={{ height: 500 }}
         image={
           tvseries.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${tvseries.poster_path}`
+            ? `https://image.tmdb.org/t/p/w500/${tvseries.tvseries_path}`
             : img
         }
       />

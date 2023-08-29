@@ -50,7 +50,7 @@ const App = () => {
         <Route path="/movies/toprated" element={<TopRatedPage />} />
         <Route path="/tvseries/favourites" element={<favouriteTvSeriesPage />} />
         <Route path="/tvseries/home" element={<TvMainPage />} />
-        <Route path="v/tseries/Reviews" element={< TvSeriesReviewPage/>} />
+        <Route path="/tseries/Reviews" element={< TvSeriesReviewPage/>} />
         <Route path="/tvseries/Details" element={< TvSeriesDetailsPage/>} />
       </Routes>
       </MoviesContextProvider>
